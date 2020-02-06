@@ -1,0 +1,10 @@
+$textColor: #eee;
+@import "./header";
+@import "./slider";
+body{
+    background:$textColor;
+    font-family:Open Sans;
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+}

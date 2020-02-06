@@ -1,0 +1,296 @@
+header {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 400px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    width: 200px;
+  }
+}
+
+header.closed {
+  left: -400px;
+}
+
+header::after {
+  content: "";
+  background-image: url("../images/arkaplan.png");
+  opacity: 0.85;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+header nav a {
+  color: #fcfcfc;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 20px;
+  text-decoration: none;
+}
+
+header nav a:focus {
+  outline: 5px solid #afb6cd;
+}
+
+.main-view {
+  background: #373737;
+  padding-left: 420px;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+@media screen and (max-width: 767px) {
+  .main-view {
+    padding-left: 220px;
+  }
+}
+
+.main-view .close {
+  display: none;
+}
+
+.main-view.showcase {
+  padding-left: 0px;
+}
+
+.main-view.showcase .close {
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 15px;
+  font-size: 23px;
+  font-weight: bold;
+  background: #eee;
+  border-color: #333;
+}
+
+.main-view.showcase.selected:after {
+  content: attr(data-after);
+  color: white;
+  background: rgba(2, 92, 56, 0.8);
+  font-size: 25px;
+  text-align: center;
+  display: block;
+  max-width: 80%;
+  width: 500px;
+  margin: 0 auto;
+  padding: 60px;
+  font-weight: bold;
+}
+
+.main-view.showcase.selected .mrow {
+  position: absolute;
+  bottom: 10px;
+  max-width: 99%;
+}
+
+.main-view.showcase.selected .mrow .slider {
+  display: none !important;
+}
+
+.main-view.showcase.selected .mrow .slider.active {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.main-view.showcase.selected .mrow .slider .slider__item {
+  width: 150px;
+  height: 200px;
+  margin: 10px;
+}
+
+.main-view.showcase.selected .mrow .slider .slider__item .title {
+  height: 32px;
+  font-size: 12px;
+  padding: 0px 2px;
+}
+
+.main-view .mrow {
+  background: transparent;
+  padding-top: 100px;
+  overflow-x: auto;
+}
+
+.main-view .mrow::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.main-view .mrow::-webkit-scrollbar-thumb {
+  background: #afb6cd;
+  border-radius: 20px;
+}
+
+.main-view .mrow::-webkit-scrollbar-track {
+  background: #373737;
+  border-radius: 20px;
+}
+
+.main-view .mrow {
+  scrollbar-face-color: #afb6cd;
+  scrollbar-track-color: #373737;
+}
+
+.main-view .mrow .slider {
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 6820px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.main-view .mrow .slider .slider__item {
+  height: 340px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #4b4b4b;
+  margin: 20px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.main-view .mrow .slider .slider__item .title {
+  position: absolute;
+  background: #eee;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  font-size: 1.1rem;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  height: 52px;
+  display: table;
+  width: 100%;
+}
+
+.main-view .mrow .slider .slider__item .title span {
+  display: table-cell;
+  vertical-align: bottom;
+  color: #333;
+  font-weight: bold;
+  padding: 0px 20px;
+}
+
+.main-view .mrow .slider .slider__item:hover, .main-view .mrow .slider .slider__item:focus {
+  -webkit-transform: rotateY(15deg) scale(1.03);
+          transform: rotateY(15deg) scale(1.03);
+  outline: 5px solid #afb6cd;
+}
+
+.main-view .mrow .slider .slider__item:hover .title, .main-view .mrow .slider .slider__item:focus .title {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.main-view .mrow .slider .slider__item img {
+  max-width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.main-view .mrow .slider .slider__item.skeleton-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.main-view .mrow .slider .slider__item.skeleton-box::before {
+  content: '';
+  position: absolute !important;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background-color: #4b4b4b;
+  z-index: 2;
+}
+
+.main-view .mrow .slider .slider__item.skeleton-box::after {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  height: auto !important;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #4b4b4b), color-stop(30%, dimgray), color-stop(70%, #282828), to(#4b4b4b));
+  background-image: linear-gradient(90deg, #4b4b4b 0, dimgray 30%, #282828 70%, #4b4b4b);
+  -webkit-animation: shimmer 2s infinite;
+  animation: shimmer 2s infinite;
+  content: '';
+  z-index: 3;
+  -webkit-transition: all 1.5s;
+  transition: all 1.5s;
+  color: white;
+}
+
+@-webkit-keyframes shimmer {
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+body {
+  background: #eee;
+  font-family: Open Sans;
+  padding: 0px;
+  margin: 0px;
+  overflow-x: hidden;
+}
+/*# sourceMappingURL=styles.css.map */
